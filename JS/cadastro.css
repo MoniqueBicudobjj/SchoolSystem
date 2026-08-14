@@ -1,1 +1,151 @@
 
+
+const formulario =
+    document.getElementById(
+        "formCadastro"
+    );
+
+
+formulario.addEventListener(
+
+    "submit",
+
+    function (event) {
+
+        event.preventDefault();
+
+
+        const nome =
+            document.getElementById(
+                "nome"
+            ).value.trim();
+
+
+        const cpf =
+            document.getElementById(
+                "cpf"
+            ).value.trim();
+
+
+        const nascimento =
+            document.getElementById(
+                "nascimento"
+            ).value;
+
+
+        const turma =
+            document.getElementById(
+                "turma"
+            ).value;
+
+
+        const financeiro =
+            document.getElementById(
+                "responsavelFinanceiro"
+            ).value.trim();
+
+
+        const pedagogico =
+            document.getElementById(
+                "responsavelPedagogico"
+            ).value.trim();
+
+
+        if (
+
+            !nome ||
+
+            !cpf ||
+
+            !nascimento ||
+
+            !turma ||
+
+            !financeiro ||
+
+            !pedagogico
+
+        ) {
+
+            alert(
+                "Preencha todos os campos obrigatórios."
+            );
+
+            return;
+
+        }
+
+
+        const alunos =
+            JSON.parse(
+
+                localStorage.getItem(
+                    "schoolSystemAlunos"
+                )
+
+            ) || [];
+
+
+        const cpfExistente =
+            alunos.some(
+                aluno =>
+                    aluno.cpf === cpf
+            );
+
+
+        if (cpfExistente) {
+
+            alert(
+                "Já existe um aluno cadastrado com este CPF."
+            );
+
+            return;
+
+        }
+
+
+        const novoAluno = {
+
+            id: Date.now(),
+
+            nome,
+
+            cpf,
+
+            nascimento,
+
+            turma,
+
+            responsavelFinanceiro:
+                financeiro,
+
+            responsavelPedagogico:
+                pedagogico
+
+        };
+
+
+        alunos.push(
+            novoAluno
+        );
+
+
+        localStorage.setItem(
+
+            "schoolSystemAlunos",
+
+            JSON.stringify(alunos)
+
+        );
+
+
+        alert(
+            "Aluno cadastrado com sucesso! "
+        );
+
+
+        formulario.reset();
+
+    }
+
+);
