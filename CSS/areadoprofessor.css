@@ -1,1 +1,582 @@
 
+* {
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1e293b;
+
+}
+
+
+.header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #263b80,
+            #4f46a5
+        );
+
+    color: white;
+
+    padding: 18px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+.logo span {
+
+    opacity: .6;
+
+}
+
+.nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+.container {
+
+    width: 92%;
+
+    max-width: 1180px;
+
+    margin: 30px auto;
+
+}
+
+.hero {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(38,59,128,.08);
+
+}
+
+.hero h1 {
+
+    margin-bottom: 8px;
+
+}
+
+.hero p {
+
+    color: #64748b;
+
+}
+
+.card {
+
+    background: white;
+
+    padding: 22px;
+
+    margin-top: 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e8edf5;
+
+}
+
+.topo-diario {
+
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.topo-diario div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+.topo-diario label {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+input,
+select {
+
+    padding: 11px;
+
+    border: 1px solid #dbe2ec;
+
+    border-radius: 8px;
+
+}
+
+.section-title {
+
+    margin: 30px 0 14px;
+
+}
+
+.table-wrap {
+
+    background: white;
+
+    border-radius: 16px;
+
+    overflow-x: auto;
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    padding: 15px;
+
+    border-bottom:
+        1px solid #edf1f6;
+
+    text-align: left;
+
+}
+
+
+th {
+
+    background: #f8fafc;
+
+    color: #475569;
+
+}
+
+
+.presenca {
+
+    padding: 8px;
+
+}
+
+
+.btn-salvar {
+
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    background: #4338ca;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.btn-salvar:hover {
+
+    background: #3730a3;
+
+}
+
+
+.resumo {
+
+    margin-top: 20px;
+
+    background: #eef2ff;
+
+    color: #3730a3;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+}
+
+
+.presente {
+
+    color: #166534;
+
+    font-weight: bold;
+
+}
+
+
+.falta {
+
+    color: #991b1b;
+
+    font-weight: bold;
+
+}
+
+
+.footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}* {
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1e293b;
+
+}
+
+
+.header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #263b80,
+            #4f46a5
+        );
+
+    color: white;
+
+    padding: 18px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+.logo span {
+
+    opacity: .6;
+
+}
+
+.nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+.container {
+
+    width: 92%;
+
+    max-width: 1180px;
+
+    margin: 30px auto;
+
+}
+
+.hero {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(38,59,128,.08);
+
+}
+
+.hero h1 {
+
+    margin-bottom: 8px;
+
+}
+
+.hero p {
+
+    color: #64748b;
+
+}
+
+.card {
+
+    background: white;
+
+    padding: 22px;
+
+    margin-top: 20px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e8edf5;
+
+}
+
+.topo-diario {
+
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.topo-diario div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+.topo-diario label {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+input,
+select {
+
+    padding: 11px;
+
+    border: 1px solid #dbe2ec;
+
+    border-radius: 8px;
+
+}
+
+.section-title {
+
+    margin: 30px 0 14px;
+
+}
+
+.table-wrap {
+
+    background: white;
+
+    border-radius: 16px;
+
+    overflow-x: auto;
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    padding: 15px;
+
+    border-bottom:
+        1px solid #edf1f6;
+
+    text-align: left;
+
+}
+
+
+th {
+
+    background: #f8fafc;
+
+    color: #475569;
+
+}
+
+
+.presenca {
+
+    padding: 8px;
+
+}
+
+
+.btn-salvar {
+
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 9px;
+
+    background: #4338ca;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.btn-salvar:hover {
+
+    background: #3730a3;
+
+}
+
+
+.resumo {
+
+    margin-top: 20px;
+
+    background: #eef2ff;
+
+    color: #3730a3;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+}
+
+
+.presente {
+
+    color: #166534;
+
+    font-weight: bold;
+
+}
+
+
+.falta {
+
+    color: #991b1b;
+
+    font-weight: bold;
+
+}
+
+
+.footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
