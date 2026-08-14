@@ -1,1 +1,180 @@
 
+const buscarBtn =
+    document.getElementById(
+        "buscarAluno"
+    );
+
+
+buscarBtn.addEventListener(
+
+    "click",
+
+    buscarAluno
+
+);
+
+
+function buscarAluno() {
+
+    const cpf =
+        document.getElementById(
+            "cpfBusca"
+        )
+            .value
+            .trim();
+
+
+    if (!cpf) {
+
+        alert(
+            "Digite o CPF do aluno."
+        );
+
+        return;
+
+    }
+
+
+    const alunos =
+        JSON.parse(
+
+            localStorage.getItem(
+                "schoolSystemAlunos"
+            )
+
+        ) || [];
+
+
+    const aluno =
+        alunos.find(
+
+            item =>
+                item.cpf === cpf
+
+        );
+
+
+    if (!aluno) {
+
+        alert(
+            "Aluno não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "nomeAluno"
+    ).value =
+        aluno.nome;
+
+
+    document.getElementById(
+        "turmaAtual"
+    ).value =
+        aluno.turma;
+
+
+    document.getElementById(
+        "dadosAluno"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "salvarRematricula"
+    ).dataset.id =
+        aluno.id;
+
+}
+
+
+document
+    .getElementById(
+        "salvarRematricula"
+    )
+    .addEventListener(
+
+        "click",
+
+        salvarRematricula
+
+    );
+
+
+function salvarRematricula() {
+
+    const id =
+        Number(
+
+            document
+                .getElementById(
+                    "salvarRematricula"
+                )
+                .dataset.id
+
+        );
+
+
+    const novaTurma =
+        document.getElementById(
+            "novaTurma"
+        ).value;
+
+
+    const alunos =
+        JSON.parse(
+
+            localStorage.getItem(
+                "schoolSystemAlunos"
+            )
+
+        ) || [];
+
+
+    const aluno =
+        alunos.find(
+
+            item =>
+                item.id === id
+
+        );
+
+
+    if (!aluno) {
+
+        alert(
+            "Aluno não encontrado."
+        );
+
+        return;
+
+    }
+
+
+    aluno.turma =
+        novaTurma;
+
+
+    localStorage.setItem(
+
+        "schoolSystemAlunos",
+
+        JSON.stringify(alunos)
+
+    );
+
+
+    document.getElementById(
+        "turmaAtual"
+    ).value =
+        novaTurma;
+
+
+    alert(
+        "Rematrícula realizada com sucesso! ✅"
+    );
+
+}
