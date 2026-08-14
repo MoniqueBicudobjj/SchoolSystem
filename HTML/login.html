@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SchoolSystem | Login</title>
+
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="logo">
+                School<span>System</span>
+            </div>
+
+            <p class="subtitle">
+                Sistema de Gestão Escolar
+            </p>
+
+            <h1>Entrar</h1>
+
+            <p class="description">
+                Acesse sua conta para continuar.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="tipoUsuario">
+                        Tipo de usuário
+                    </label>
+
+                    <select id="tipoUsuario" required>
+
+                        <option value="">
+                            Selecione seu perfil
+                        </option>
+
+                        <option value="secretaria">
+                            <a href="cadastro.html">Administrador</a>
+                        </option>
+
+                        <option value="professor">
+                          <a href="areadoprofessor.html">Professor</a>
+                        </option>
+                        <option value="aluno">
+                             <a href="aluno.html"> Aluno </a>
+                        </option>
+
+                        <option value="responsavel">
+                           <a href="aluno.html"> Responsável </a>
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit" class="btn-login">
+                    Entrar
+                </button>
+
+            </form>
+
+
+            <p class="login-info">
+                SchoolSystem 
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="../JS/login.js"></script>
+
+</body>
+
+</html>
