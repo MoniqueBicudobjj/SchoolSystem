@@ -1,1 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SchoolSystem | Área do Aluno</title>
+
+    <link rel="stylesheet" href="../CSS/aluno.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            School<span>System</span>
+        </div>
+
+        <nav class="nav">
+
+            <a href="aluno.html">Início</a>
+
+            <a href="areadoprofessor.html">
+                Professor
+            </a>
+
+            <a href="cadastro.html">
+                Matrícula
+            </a>
+
+            <a href="login.html">
+                Sair
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             BOAS-VINDAS
+        ========================== -->
+
+        <section class="hero">
+
+            <h1>
+                Olá, Aluno!
+            </h1>
+
+            <p>
+                Acompanhe suas notas, frequência e os principais avisos da escola.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             INFORMAÇÕES DO ALUNO
+        ========================== -->
+
+        <section class="grid">
+
+
+            <!-- TURMA -->
+
+            <div class="card">
+
+                <span class="muted">
+                    Turma
+                </span>
+
+                <div class="stat">
+                    3º DS
+                </div>
+
+                <p class="muted">
+                    Manhã
+                </p>
+
+            </div>
+
+
+            <!-- MÉDIA -->
+
+            <div class="card">
+
+                <span class="muted">
+                    Média geral
+                </span>
+
+                <div class="stat" id="mediaGeral">
+                    8,1
+                </div>
+
+                <span class="status aprovado" id="statusGeral">
+                    Aprovado
+                </span>
+
+            </div>
+
+
+            <!-- FREQUÊNCIA -->
+
+            <div class="card">
+
+                <span class="muted">
+                    Frequência
+                </span>
+
+                <div class="stat">
+                    94%
+                </div>
+
+                <div class="progress">
+
+                    <div class="progress-bar" style="width:94%"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BOLETIM
+        ========================== -->
+
+        <h2 class="section-title">
+            Boletim Online
+        </h2>
+
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Disciplina
+                        </th>
+
+                        <th>
+                            1º Trimestre
+                        </th>
+
+                        <th>
+                            2º Trimestre
+                        </th>
+
+                        <th>
+                            3º Trimestre
+                        </th>
+
+                        <th>
+                            Média
+                        </th>
+
+                        <th>
+                            Situação
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- =========================
+                         MATEMÁTICA
+                    ========================== -->
+
+                    <tr>
+
+                        <td>
+                            Matemática
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.5" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="9.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td class="media">
+                            8.5
+                        </td>
+
+                        <td>
+
+                            <span class="status aprovado">
+                                Aprovado
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- =========================
+                         PORTUGUÊS
+                    ========================== -->
+
+                    <tr>
+
+                        <td>
+                            Português
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="9.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.5" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td class="media">
+                            8.5
+                        </td>
+
+                        <td>
+
+                            <span class="status aprovado">
+                                Aprovado
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- =========================
+                         BANCO DE DADOS
+                    ========================== -->
+
+                    <tr>
+
+                        <td>
+                            Banco de Dados
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="6.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.5" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td class="media">
+                            7.5
+                        </td>
+
+                        <td>
+
+                            <span class="status aprovado">
+                                Aprovado
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- =========================
+                         APS
+                    ========================== -->
+
+                    <tr>
+
+                        <td>
+                            APS
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="9.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.0" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td>
+
+                            <input type="number" class="nota" value="8.5" min="0" max="10" step="0.1" disabled>
+
+                        </td>
+
+                        <td class="media">
+                            8.5
+                        </td>
+
+                        <td>
+
+                            <span class="status aprovado">
+                                Aprovado
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- =========================
+             BOTÕES DAS NOTAS
+        ========================== -->
+
+        <div class="nota-acoes">
+
+            <button type="button" id="editarNotas" class="btn-editar">
+                ✏️ Editar notas
+            </button>
+
+
+            <button type="button" id="salvarNotas" class="btn-salvar">
+                💾 Salvar notas
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             CONTROLE DE FREQUÊNCIA
+        ========================== -->
+
+        <h2 class="section-title">
+            Controle de Frequência
+        </h2>
+
+
+        <div class="card">
+
+            <h3>
+                Sua presença está em 94%
+            </h3>
+
+            <p class="muted">
+                Continue acompanhando suas faltas para evitar problemas de frequência.
+            </p>
+
+
+            <div class="progress">
+
+                <div class="progress-bar" style="width:94%"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             MURAL DE AVISOS
+        ========================== -->
+
+        <h2 class="section-title">
+            Mural de Avisos
+        </h2>
+
+
+        <div class="card timeline" id="timeline">
+
+
+            <!-- AVISO 1 -->
+
+            <div class="timeline-item">
+
+                <small>
+                    13/08/2026
+                </small>
+
+                <h3>
+                    Reunião de responsáveis
+                </h3>
+
+                <p class="muted">
+                    A reunião acontecerá na próxima sexta-feira,
+                    às 18:00h.
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <small>
+                    10/08/2026
+                </small>
+
+                <h3>
+                    Feira Cultural
+                </h3>
+
+                <p class="muted">
+                    Confira a programação do evento.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <small>
+                    05/08/2026
+                </small>
+
+                <h3>
+                    Entrega de trabalhos
+                </h3>
+
+                <p class="muted">
+                    Os trabalhos devem ser entregues
+                    até o final desta semana.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        SchoolSystem
+
+    </footer>
+
+   <script src="../JS/aluno.js"></script>
+
+</body>
+
+</html>
