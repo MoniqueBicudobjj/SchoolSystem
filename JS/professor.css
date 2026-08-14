@@ -1,1 +1,479 @@
 
+
+const alunos = [
+
+    {
+        id: 1,
+        nome: "Maria Silva",
+        turma: "3DS"
+    },
+
+    {
+        id: 2,
+        nome: "João Santos",
+        turma: "3DS"
+    },
+
+    {
+        id: 3,
+        nome: "Ana Oliveira",
+        turma: "3DS"
+    },
+
+    {
+        id: 4,
+        nome: "Lucas Pereira",
+        turma: "3DS"
+    }
+
+];
+
+
+function pegarNotas() {
+
+    return JSON.parse(
+
+        localStorage.getItem(
+            "schoolSystemNotas"
+        )
+
+    ) || {};
+
+}
+
+
+function salvarNotas(notas) {
+
+    localStorage.setItem(
+
+        "schoolSystemNotas",
+
+        JSON.stringify(notas)
+
+    );
+
+}
+
+
+function calcularMedia(nota) {
+
+    return (
+
+        Number(nota.primeiro) +
+
+        Number(nota.segundo) +
+
+        Number(nota.terceiro)
+
+    ) / 3;
+
+}
+
+
+function verificarSituacao(media) {
+
+    if (media >= 7)
+
+        return {
+            texto: "Aprovado",
+            classe: "aprovado"
+        };
+
+
+    if (media >= 5)
+
+        return {
+            texto: "Recuperação",
+            classe: "recuperacao"
+        };
+
+
+    return {
+        texto: "Reprovado",
+        classe: "reprovado"
+    };
+
+}
+
+
+function carregarNotas() {
+
+    const tabela =
+        document.getElementById(
+            "tabelaNotas"
+        );
+
+
+    const turma =
+        document.getElementById(
+            "turma"
+        ).value;
+
+
+    const disciplina =
+        document.getElementById(
+            "disciplina"
+        ).value;
+
+
+    const notas =
+        pegarNotas();
+
+
+    const alunosTurma =
+        alunos.filter(
+            aluno =>
+                aluno.turma === turma
+        );
+
+
+    tabela.innerHTML = "";
+
+
+    alunosTurma.forEach(
+        aluno => {
+
+
+            if (!notas[aluno.id]) {
+
+                notas[aluno.id] = {};
+
+            }
+
+
+            if (
+                !notas[aluno.id][disciplina]
+            ) {
+
+                notas[aluno.id][disciplina] = {
+
+                    primeiro: 0,
+
+                    segundo: 0,
+
+                    terceiro: 0
+
+                };
+
+            }
+
+
+            const nota =
+                notas[aluno.id][disciplina];
+
+
+            const media =
+                calcularMedia(nota);
+
+
+            const situacao =
+                verificarSituacao(
+                    media
+                );
+
+
+            const linha =
+                document.createElement("tr");
+
+
+            linha.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${aluno.nome}
+                    </strong>
+                </td>
+
+                <td>
+                    ${Number(nota.primeiro)
+                        .toFixed(1)}
+                </td>
+
+                <td>
+                    ${Number(nota.segundo)
+                        .toFixed(1)}
+                </td>
+
+                <td>
+                    ${Number(nota.terceiro)
+                        .toFixed(1)}
+                </td>
+
+                <td>
+                    <strong>
+                        ${media.toFixed(1)}
+                    </strong>
+                </td>
+
+                <td>
+
+                    <span
+                        class="
+                            status
+                            ${situacao.classe}
+                        "
+                    >
+                        ${situacao.texto}
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn-editar"
+                        onclick="
+                            editarNota(
+                                ${aluno.id},
+                                '${disciplina}'
+                            )
+                        "
+                    >
+                        ✏️ Editar
+                    </button>
+
+                </td>
+
+            `;
+
+
+            tabela.appendChild(linha);
+
+        }
+    );
+
+}
+
+
+function editarNota(
+    id,
+    disciplina
+) {
+
+    const notas =
+        pegarNotas();
+
+
+    const nota =
+        notas[id][disciplina];
+
+
+    const aluno =
+        alunos.find(
+            item => item.id === id
+        );
+
+
+    const linhas =
+        document.querySelectorAll(
+            "#tabelaNotas tr"
+        );
+
+
+    let linha;
+
+
+    linhas.forEach(item => {
+
+        if (
+            item.children[0]
+                .innerText
+                .trim()
+                === aluno.nome
+        ) {
+
+            linha = item;
+
+        }
+
+    });
+
+
+    linha.innerHTML = `
+
+        <td>
+            <strong>
+                ${aluno.nome}
+            </strong>
+        </td>
+
+        <td>
+
+            <input
+                class="nota-input"
+                id="nota1-${id}"
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                value="${nota.primeiro}"
+            >
+
+        </td>
+
+        <td>
+
+            <input
+                class="nota-input"
+                id="nota2-${id}"
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                value="${nota.segundo}"
+            >
+
+        </td>
+
+        <td>
+
+            <input
+                class="nota-input"
+                id="nota3-${id}"
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                value="${nota.terceiro}"
+            >
+
+        </td>
+
+        <td>
+            -
+        </td>
+
+        <td>
+            Editando...
+        </td>
+
+        <td>
+
+            <button
+                class="btn-salvar"
+                onclick="
+                    salvarNota(
+                        ${id},
+                        '${disciplina}'
+                    )
+                "
+            >
+                💾 Salvar
+            </button>
+
+        </td>
+
+    `;
+
+}
+
+
+function salvarNota(
+    id,
+    disciplina
+) {
+
+    const primeiro =
+        Number(
+            document.getElementById(
+                `nota1-${id}`
+            ).value
+        );
+
+
+    const segundo =
+        Number(
+            document.getElementById(
+                `nota2-${id}`
+            ).value
+        );
+
+
+    const terceiro =
+        Number(
+            document.getElementById(
+                `nota3-${id}`
+            ).value
+        );
+
+
+    if (
+
+        primeiro < 0 ||
+        primeiro > 10 ||
+
+        segundo < 0 ||
+        segundo > 10 ||
+
+        terceiro < 0 ||
+        terceiro > 10
+
+    ) {
+
+        alert(
+            "As notas devem estar entre 0 e 10."
+        );
+
+        return;
+
+    }
+
+
+    const notas =
+        pegarNotas();
+
+
+    if (!notas[id]) {
+
+        notas[id] = {};
+
+    }
+
+
+    notas[id][disciplina] = {
+
+        primeiro,
+
+        segundo,
+
+        terceiro
+
+    };
+
+
+    salvarNotas(notas);
+
+
+    alert(
+        "Nota alterada com sucesso! ✅"
+    );
+
+
+    carregarNotas();
+
+}
+
+
+document
+    .getElementById("turma")
+    .addEventListener(
+        "change",
+        carregarNotas
+    );
+
+
+document
+    .getElementById("disciplina")
+    .addEventListener(
+        "change",
+        carregarNotas
+    );
+
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    carregarNotas
+
+);
