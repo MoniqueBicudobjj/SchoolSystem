@@ -1,1 +1,346 @@
+* {
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1e293b;
+
+}
+
+
+.header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #263b80,
+            #4f46a5
+        );
+
+    color: white;
+
+    padding: 18px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 3px 15px
+        rgba(0,0,0,.12);
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.logo span {
+
+    opacity: .6;
+
+}
+
+
+.nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+
+.nav a:hover {
+
+    opacity: .7;
+
+}
+
+
+.container {
+
+    width: 92%;
+
+    max-width: 1180px;
+
+    margin: 30px auto;
+
+}
+
+
+.hero {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(38,59,128,.08);
+
+}
+
+
+.hero h1 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.hero p {
+
+    color: #64748b;
+
+}
+
+
+.section-title {
+
+    margin: 30px 0 14px;
+
+}
+
+
+.filtros {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.filtros div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.filtros label {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.filtros select {
+
+    padding: 11px;
+
+    min-width: 200px;
+
+    border: 1px solid #dbe2ec;
+
+    border-radius: 8px;
+
+}
+
+
+.table-wrap {
+
+    background: white;
+
+    border-radius: 16px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        0 5px 22px
+        rgba(38,59,128,.06);
+
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 850px;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    padding: 14px 16px;
+
+    border-bottom:
+        1px solid #edf1f6;
+
+    text-align: left;
+
+}
+
+
+th {
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-size: 13px;
+
+}
+
+
+.status {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.aprovado {
+
+    background: #dcfce7;
+
+    color: #166534;
+
+}
+
+
+.recuperacao {
+
+    background: #fef3c7;
+
+    color: #92400e;
+
+}
+
+
+.reprovado {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+}
+
+
+.btn-editar,
+.btn-salvar {
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.btn-editar {
+
+    background: #eef2ff;
+
+    color: #4338ca;
+
+}
+
+
+.btn-salvar {
+
+    background: #4338ca;
+
+    color: white;
+
+}
+
+.nota-input {
+
+    width: 65px;
+
+    padding: 8px;
+
+    border:
+        1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    text-align: center;
+
+}
+
+
+.footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+   .filtros {
+
+        flex-direction: column;
+
+    }
 
