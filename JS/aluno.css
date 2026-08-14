@@ -1,1 +1,348 @@
 
+
+const notas = document.querySelectorAll(".nota");
+
+const botaoEditar = document.getElementById("editarNotas");
+
+const botaoSalvar = document.getElementById("salvarNotas");
+
+const mediaGeral = document.getElementById("mediaGeral");
+
+const statusGeral = document.getElementById("statusGeral");
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    bloquearNotas();
+
+    atualizarTodasAsMedias();
+
+});
+
+
+function bloquearNotas() {
+
+    notas.forEach(function (nota) {
+
+        nota.disabled = true;
+
+        nota.classList.remove("editando");
+
+    });
+
+}
+
+function liberarNotas() {
+
+    notas.forEach(function (nota) {
+
+        nota.disabled = false;
+
+        nota.classList.add("editando");
+
+    });
+
+}
+
+
+
+botaoEditar.addEventListener("click", function () {
+
+    liberarNotas();
+
+    botaoEditar.textContent = "✏️ Editando notas";
+
+    botaoEditar.disabled = true;
+
+});
+
+
+notas.forEach(function (nota) {
+
+    nota.addEventListener("input", function () {
+
+        validarNota(nota);
+
+        atualizarMediaDaLinha(nota);
+
+        atualizarMediaGeral();
+
+    });
+
+});
+
+
+function validarNota(nota) {
+
+    let valor = Number(nota.value);
+
+
+    if (valor < 0) {
+
+        nota.value = 0;
+
+    }
+
+
+    if (valor > 10) {
+
+        nota.value = 10;
+
+    }
+
+}
+
+
+
+function atualizarMediaDaLinha(nota) {
+
+    const linha = nota.closest("tr");
+
+
+    if (!linha) {
+        return;
+    }
+
+
+    const notasDaLinha =
+        linha.querySelectorAll(".nota");
+
+
+    const campoMedia =
+        linha.querySelector(".media");
+
+
+    const campoSituacao =
+        linha.querySelector(".status");
+
+
+    let soma = 0;
+
+    let quantidade = 0;
+
+
+    notasDaLinha.forEach(function (campo) {
+
+        const valor = Number(campo.value);
+
+
+        if (!isNaN(valor)) {
+
+            soma += valor;
+
+            quantidade++;
+
+        }
+
+    });
+
+
+    if (quantidade === 0) {
+
+        campoMedia.textContent = "0.0";
+
+        return;
+
+    }
+
+
+    const media = soma / quantidade;
+
+
+    campoMedia.textContent =
+        media.toFixed(1);
+
+
+    atualizarSituacao(
+        campoSituacao,
+        media
+    );
+
+}
+
+
+function atualizarSituacao(elemento, media) {
+
+    elemento.classList.remove(
+        "aprovado",
+        "recuperacao",
+        "reprovado"
+    );
+
+
+    if (media >= 7) {
+
+        elemento.textContent =
+            "Aprovado";
+
+        elemento.classList.add(
+            "aprovado"
+        );
+
+    }
+
+    else if (media >= 5) {
+
+        elemento.textContent =
+            "Recuperação";
+
+        elemento.classList.add(
+            "recuperacao"
+        );
+
+    }
+
+    else {
+
+        elemento.textContent =
+            "Reprovado";
+
+        elemento.classList.add(
+            "reprovado"
+        );
+
+    }
+
+}
+
+function atualizarTodasAsMedias() {
+
+    const linhas =
+        document.querySelectorAll("tbody tr");
+
+
+    linhas.forEach(function (linha) {
+
+        const primeiraNota =
+            linha.querySelector(".nota");
+
+
+        if (primeiraNota) {
+
+            atualizarMediaDaLinha(
+                primeiraNota
+            );
+
+        }
+
+    });
+
+
+    atualizarMediaGeral();
+
+}
+
+function atualizarMediaGeral() {
+
+    const medias =
+        document.querySelectorAll(".media");
+
+
+    let soma = 0;
+
+    let quantidade = 0;
+
+
+    medias.forEach(function (campo) {
+
+        const valor =
+            Number(
+                campo.textContent.replace(",", ".")
+            );
+
+
+        if (!isNaN(valor)) {
+
+            soma += valor;
+
+            quantidade++;
+
+        }
+
+    });
+
+
+    if (quantidade === 0) {
+
+        mediaGeral.textContent = "0,0";
+
+        return;
+
+    }
+
+    const resultado =
+        soma / quantidade;
+
+
+    mediaGeral.textContent =
+        resultado.toFixed(1).replace(".", ",");
+
+
+    atualizarStatusGeral(
+        resultado
+    );
+
+}
+
+function atualizarStatusGeral(media) {
+
+    statusGeral.classList.remove(
+        "aprovado",
+        "recuperacao",
+        "reprovado"
+    );
+
+
+    if (media >= 7) {
+
+        statusGeral.textContent =
+            "Aprovado";
+
+        statusGeral.classList.add(
+            "aprovado"
+        );
+
+    }
+
+    else if (media >= 5) {
+
+        statusGeral.textContent =
+            "Recuperação";
+
+        statusGeral.classList.add(
+            "recuperacao"
+        );
+
+    }
+
+    else {
+
+        statusGeral.textContent =
+            "Reprovado";
+
+        statusGeral.classList.add(
+            "reprovado"
+        );
+
+    }
+
+}
+
+botaoSalvar.addEventListener("click", function () {
+
+    atualizarTodasAsMedias();
+
+    bloquearNotas();
+
+
+    botaoEditar.disabled = false;
+
+    botaoEditar.textContent =
+        " Editar notas";
+
+
+    alert(
+        "Notas salvas com sucesso!"
+    );
+
+});
