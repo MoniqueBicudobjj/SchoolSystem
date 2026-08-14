@@ -1,1 +1,245 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1e293b;
+
+}
+
+
+.header {
+
+    background:
+        linear-gradient(135deg,
+            #263b80,
+            #4f46a5);
+
+    color: white;
+
+    padding: 18px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.logo span {
+
+    opacity: .6;
+
+}
+
+
+.nav {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+
+.container {
+
+    width: 92%;
+
+    max-width: 900px;
+
+    margin: 30px auto;
+
+}
+
+
+.hero {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero p {
+
+    color: #64748b;
+
+    margin-top: 7px;
+
+}
+
+
+.card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 5px 22px rgba(38, 59, 128, .06);
+
+}
+
+
+.card h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.busca {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.busca input {
+
+    flex: 1;
+
+    padding: 13px;
+
+    border:
+        1px solid #dbe2ec;
+
+    border-radius: 8px;
+
+}
+
+
+.busca button,
+.btn-salvar {
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    background: #4338ca;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.busca button:hover,
+.btn-salvar:hover {
+
+    background: #3730a3;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-group label {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    padding: 12px;
+
+    border:
+        1px solid #dbe2ec;
+
+    border-radius: 8px;
+
+}
+
+
+.btn-salvar {
+
+    margin-top: 5px;
+
+}
+
+
+.footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+}
+
+    .busca {
+
+        flex-direction: column;
+
+    }
 
