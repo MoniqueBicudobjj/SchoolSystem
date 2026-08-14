@@ -1,1 +1,277 @@
 
+const alunosDiario = [
+
+    "Maria Silva",
+
+    "João Santos",
+
+    "Ana Oliveira",
+
+    "Lucas Pereira",
+
+    "Beatriz Souza",
+
+    "Gabriel Costa"
+
+];
+
+
+function definirDataAtual() {
+
+    const campo =
+        document.getElementById(
+            "dataAula"
+        );
+
+
+    if (!campo) return;
+
+
+    const hoje =
+        new Date();
+
+
+    const ano =
+        hoje.getFullYear();
+
+
+    const mes =
+        String(
+            hoje.getMonth() + 1
+        ).padStart(2, "0");
+
+
+    const dia =
+        String(
+            hoje.getDate()
+        ).padStart(2, "0");
+
+
+    campo.value =
+        `${ano}-${mes}-${dia}`;
+
+}
+
+
+function carregarDiario() {
+
+    const lista =
+        document.getElementById(
+            "listaPresenca"
+        );
+
+
+    if (!lista) return;
+
+
+    lista.innerHTML = "";
+
+
+    alunosDiario.forEach(
+        (nome, index) => {
+
+
+            const linha =
+                document.createElement(
+                    "tr"
+                );
+
+
+            linha.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${nome}
+                    </strong>
+                </td>
+
+                <td>
+
+                    <select
+                        class="presenca"
+                        data-aluno="${index}"
+                        onchange="atualizarStatus(this)"
+                    >
+
+                        <option value="presente">
+                            Presente
+                        </option>
+
+                        <option value="falta">
+                            Falta
+                        </option>
+
+                    </select>
+
+                </td>
+
+                <td>
+
+                    <span
+                        class="status presente"
+                    >
+                        Presente
+                    </span>
+
+                </td>
+
+            `;
+
+
+            lista.appendChild(linha);
+
+        }
+    );
+
+}
+
+
+function atualizarStatus(select) {
+
+    const linha =
+        select.closest("tr");
+
+
+    const status =
+        linha.querySelector(
+            ".status"
+        );
+
+
+    if (
+        select.value ===
+        "presente"
+    ) {
+
+        status.textContent =
+            "Presente";
+
+        status.className =
+            "status presente";
+
+    }
+
+    else {
+
+        status.textContent =
+            "Falta";
+
+        status.className =
+            "status falta";
+
+    }
+
+}
+
+
+function salvarPresenca() {
+
+    const data =
+        document.getElementById(
+            "dataAula"
+        ).value;
+
+
+    if (!data) {
+
+        alert(
+            "Selecione a data da aula."
+        );
+
+        return;
+
+    }
+
+
+    const presencas =
+        document.querySelectorAll(
+            ".presenca"
+        );
+
+
+    const dados = [];
+
+
+    presencas.forEach(
+        (item, index) => {
+
+            dados.push({
+
+                aluno:
+                    alunosDiario[index],
+
+                status:
+                    item.value
+
+            });
+
+        }
+    );
+
+
+    localStorage.setItem(
+
+        `frequencia-${data}`,
+
+        JSON.stringify(dados)
+
+    );
+
+
+    const presentes =
+        dados.filter(
+            item =>
+                item.status ===
+                "presente"
+        ).length;
+
+
+    const porcentagem =
+        (
+            presentes /
+            dados.length
+        ) * 100;
+
+
+    document.getElementById(
+        "resumoFrequencia"
+    ).innerHTML = `
+
+        <strong>
+            Chamada salva! ✅
+        </strong>
+
+        <br>
+
+        ${presentes} de
+        ${dados.length}
+        alunos presentes.
+
+        <br>
+
+        Frequência da turma:
+        ${porcentagem.toFixed(0)}%
+
+    `;
+
+
+    alert(
+        "Chamada salva com sucesso!"
+    );
+
+}
+
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function () {
+
+        definirDataAtual();
+
+        carregarDiario();
+
+    }
+
+);
