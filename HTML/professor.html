@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        SchoolSystem | Professor
+    </title>
+    <link rel="stylesheet" href="../CSS/professor.css">
+</head>
 
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            School<span>System</span>
+        </div>
+
+        <nav class="nav">
+
+            <a href="aluno.html">
+                Aluno
+            </a>
+
+            <a href="areadoprofessor.html">
+                Diário
+            </a>
+
+            <a href="professor.html">
+                Notas
+            </a>
+
+            <a href="cadastro.html">
+                Matrícula
+            </a>
+
+            <a href="login.html">
+                Sair
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+
+        <section class="hero">
+
+            <h1>
+                Área do Professor
+            </h1>
+
+            <p>
+                Consulte e altere as notas dos alunos.
+            </p>
+
+        </section>
+
+        <h2 class="section-title">
+            Lançamento de Notas
+        </h2>
+
+        <div class="filtros">
+
+            <div>
+
+                <label for="turma">
+                    Turma
+                </label>
+
+                <select id="turma">
+
+                    <option value="3DS">
+                        3ºDS
+                    </option>
+
+                    <option value="2DS">
+                        2ºDS
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label for="disciplina">
+                    Disciplina
+                </label>
+
+                <select id="disciplina">
+
+                    <option value="matematica">
+                        Matemática
+                    </option>
+
+                    <option value="portugues">
+                        Português
+                    </option>
+
+                    <option value="bancoDados">
+                        Banco de Dados
+                    </option>
+
+                    <option value="aps">
+                        APS
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Aluno
+                        </th>
+
+                        <th>
+                            1º Trimestre
+                        </th>
+
+                        <th>
+                            2º Trimestre
+                        </th>
+
+                        <th>
+                            3º Trimestre
+                        </th>
+
+                        <th>
+                            Média
+                        </th>
+
+                        <th>
+                            Situação
+                        </th>
+
+                        <th>
+                            Ação
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tabelaNotas">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        SchoolSystem 2026
+
+    </footer>
+  
+    <script src="../JS/professor.js"></script>
+
+</body>
+
+</html>
